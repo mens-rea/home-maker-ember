@@ -1,0 +1,12 @@
+<div class="card">
+  {{#if @img}}
+    <img class="card-img-top" src="..." alt="Card image cap">
+  {{else}}
+    <img class="card-img-top" src="https://loremflickr.com/cache/resized/65535_50627945193_8d481f8aff_n_320_240_g.jpg" alt={{@title}}>
+  {{/if}}
+  <div class="card-body">
+    <h5 class="card-title">{{@title}}</h5>
+    <p class="card-text">{{@description}}</p>
+    <a href="#" class="btn btn-primary">Cook now</a>
+  </div>
+</div>

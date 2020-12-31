@@ -1,0 +1,11 @@
+<h2>Recipes</h2>
+
+<div class="row">
+  {{#each @model as |recipe|}}
+    <div class="col-md-4 mb-3">
+      <Card @title={{recipe.title}} @description={{recipe.description}}/>
+    </div>
+  {{/each}}
+</div>
+
+{{outlet}}
