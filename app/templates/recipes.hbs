@@ -3,7 +3,7 @@
 <div class="row">
   {{#each @model as |recipe|}}
     <div class="col-md-4 mb-3">
-      <Card @title={{recipe.title}} @description={{recipe.description}}/>
+      <Card @recipe={{recipe}}/>
     </div>
   {{/each}}
 </div>
