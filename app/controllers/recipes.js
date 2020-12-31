@@ -11,6 +11,10 @@ export default class RecipesController extends Controller {
     return this.modalsManager
       .show('modal-with-form')
       .then(formValues => {
+        this.store.createRecord('recipe', {
+          title: formValues.title,
+          description: formValues.description,
+        }).save();
         // form is submitted
         // here `formValues` is an object with values from inputs
       })

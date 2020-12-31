@@ -7,14 +7,8 @@ export default class ModalWithFormComponent extends BaseModal {
   @computed()
   get formData () {
     const Validations = buildValidations({
-      firstName: validator('presence', true),
-      lastName: validator('presence', true),
-      email: [
-        validator('presence', true),
-        validator('format', {
-          type: 'email'
-        })
-      ]
+      title: validator('presence', true),
+      description: validator('presence', true),
     });
     return EmberObject
       .extend(Validations, {})
