@@ -1,0 +1,38 @@
+<BsModal
+  @position={{@options.position}}
+  @size={{@options.size}}
+  @backdropTransitionDuration={{@options.backdropTransitionDuration}}
+  @renderInPlace={{@options.renderInPlace}}
+  @transitionDuration={{@options.transitionDuration}}
+  @open={{@modalIsOpened}}
+  @keyboard={{false}}
+  @backdropClose={{true}}
+  @onSubmit={{fn this.confirm}}
+  @onHidden={{fn this.decline}}
+as |modal|>
+  <modal.header @title="Recipe Form"/>
+  <modal.body>
+    <BsForm
+      @model={{this.formData}}
+      @novalidate={{true}}
+      @onSubmit={{fn this.confirm}}
+    as |form|>
+      <form.element
+        @property="title"
+        @label="Title"/>
+      <form.element
+        @property="description"
+        @label="Description"/>
+    </BsForm>
+  </modal.body>
+  <modal.footer>
+    <BsButton
+      @onClick={{modal.close}}
+      @type="default"
+      @defaultText="Cancel"/>
+    <BsButton
+      @onClick={{modal.submit}}
+      @type="success"
+      @defaultText="Create"/>
+  </modal.footer>
+</BsModal>
