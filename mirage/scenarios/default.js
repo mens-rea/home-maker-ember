@@ -6,5 +6,5 @@ export default function(server) {
   */
 
   server.createList('recipe', 2);
-  server.createList('bill', 2);
+  server.createList('bill', 5);
 }

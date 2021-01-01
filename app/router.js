@@ -15,4 +15,8 @@ Router.map(function() {
   this.route('bill', {
     path: 'bills/:bill_id'
   });
+
+  this.route('reports', function() {
+    this.route('bills');
+  });
 });
