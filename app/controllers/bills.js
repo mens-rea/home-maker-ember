@@ -9,11 +9,12 @@ export default class BillsController extends Controller {
   @action
   showModalWithForm() {
     return this.modalsManager
-      .show('modal-with-form', {title: 'Add Bill', saveTitle: 'Save'})
+      .show('modal-with-form', {isBill: true, title: 'Add Bill', saveTitle: 'Save'})
       .then(formValues => {
         this.store.createRecord('bill', {
           title: formValues.title,
           description: formValues.description,
+          amount: formValues.amount,
         }).save();
         // form is submitted
         // here `formValues` is an object with values from inputs

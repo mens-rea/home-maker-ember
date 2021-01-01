@@ -23,6 +23,11 @@ as |modal|>
       <form.element
         @property="description"
         @label="Description"/>
+      {{#if @options.isBill}}
+        <form.element
+          @property="amount"
+          @label="Amount"/>
+      {{/if}}
     </BsForm>
   </modal.body>
   <modal.footer>

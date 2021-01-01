@@ -18,8 +18,10 @@ export default class CardComponent extends Component {
 
   @action
   editItem(item, type) {
+    const isBill = type === 'bill';
+
     return this.modalsManager
-      .show('modal-with-form', {item: item, title: `Edit ${type}`, saveTitle: 'Update'})
+      .show('modal-with-form', {item: item, isBill: isBill, title: `Edit ${type}`, saveTitle: 'Update'})
       .then(formValues => {
         this.store.findRecord(type, item.id).then(function(current) {
           current = item;

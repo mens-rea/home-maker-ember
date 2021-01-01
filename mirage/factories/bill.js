@@ -9,4 +9,8 @@ export default Factory.extend({
   description() {
     return faker.lorem.sentence();
   },
+
+  amount() {
+    return faker.commerce.price();
+  }
 });

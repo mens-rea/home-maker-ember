@@ -7,6 +7,7 @@
   <div class="card-body">
     <LinkTo @route="recipe" @model={{@model.id}}><h5 class="card-title">{{@model.title}}</h5></LinkTo>
     <p class="card-text">{{@model.description}}</p>
+    <span>P {{@model.amount}}</span>
   </div>
   <div class="card-footer">
     <button type="button" class="btn btn-danger float-right" onclick={{action "deleteItem" @model.id @type}}><FaIcon @icon="times" /></button>
