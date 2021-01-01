@@ -9,7 +9,7 @@ export default class RecipesController extends Controller {
   @action
   showModalWithForm() {
     return this.modalsManager
-      .show('modal-with-form')
+      .show('modal-with-form', {title: 'Add Recipe', saveTitle: 'Save'})
       .then(formValues => {
         this.store.createRecord('recipe', {
           title: formValues.title,

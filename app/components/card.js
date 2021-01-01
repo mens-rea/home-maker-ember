@@ -6,10 +6,24 @@ export default class CardComponent extends Component {
   @service
   store
 
+  @service
+  modalsManager;
+
   @action
   deleteRecipe(id) {
     let recipe = this.store.peekRecord('recipe', id);
     recipe.deleteRecord();
     recipe.save(); // => DELETE to /posts/1
+  }
+
+  @action
+  editRecipe(recipe) {
+    return this.modalsManager
+      .show('modal-with-form', {recipe: recipe, title: 'Edit Recipe', saveTitle: 'Update'})
+      .then(formValues => {
+      })
+      .catch(() => {
+        // modal is closed without submit
+      });
   }
 }

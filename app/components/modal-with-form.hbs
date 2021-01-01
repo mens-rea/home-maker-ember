@@ -10,10 +10,10 @@
   @onSubmit={{fn this.confirm}}
   @onHidden={{fn this.decline}}
 as |modal|>
-  <modal.header @title="Recipe Form"/>
+  <modal.header @title={{@options.title}}/>
   <modal.body>
     <BsForm
-      @model={{this.formData}}
+      @model={{@options.recipe}}
       @novalidate={{true}}
       @onSubmit={{fn this.confirm}}
     as |form|>
@@ -33,6 +33,6 @@ as |modal|>
     <BsButton
       @onClick={{modal.submit}}
       @type="success"
-      @defaultText="Create"/>
+      @defaultText={{@options.saveTitle}}/>
   </modal.footer>
 </BsModal>

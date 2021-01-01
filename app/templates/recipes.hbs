@@ -8,7 +8,7 @@
 <div class="row">
   {{#each @model as |recipe|}}
     <div class="col-md-4 mb-3">
-      <Card @recipe={{recipe}}/>
+      <Card @recipe={{recipe}} @showModalWithForm={{showModalWithForm}}/>
     </div>
   {{/each}}
 </div>
