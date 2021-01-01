@@ -3,4 +3,5 @@ export default function() {
   this.get('/recipes/:id');
   this.post('/recipes');
   this.delete('/recipes/:id');
+  this.patch('/recipes/:id');
 }

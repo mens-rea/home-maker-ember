@@ -21,6 +21,10 @@ export default class CardComponent extends Component {
     return this.modalsManager
       .show('modal-with-form', {recipe: recipe, title: 'Edit Recipe', saveTitle: 'Update'})
       .then(formValues => {
+        this.store.findRecord('recipe', recipe.id).then(function(current) {
+          current = recipe;
+          current.save(); // => PATCH to '/posts/1'
+        });
       })
       .catch(() => {
         // modal is closed without submit
