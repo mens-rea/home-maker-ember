@@ -3,10 +3,10 @@ import faker from 'faker';
 
 export default Factory.extend({
   title() {
-    return faker.lorem.sentence();
+    return faker.name.firstName();
   },
 
   description() {
-    return faker.lorem.paragraph();
+    return faker.lorem.sentence();
   },
 });
