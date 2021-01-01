@@ -11,4 +11,8 @@ Router.map(function() {
   this.route('recipe', {
     path: 'recipes/:recipe_id'
   });
+  this.route('bills');
+  this.route('bill', {
+    path: 'bills/:bill_id'
+  });
 });

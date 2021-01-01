@@ -5,11 +5,11 @@
     <img class="card-img-top" src="https://loremflickr.com/cache/resized/65535_50627945193_8d481f8aff_n_320_240_g.jpg" alt={{@title}}>
   {{/if}} --}}
   <div class="card-body">
-    <LinkTo @route="recipe" @model={{@recipe.id}}><h5 class="card-title">{{@recipe.title}}</h5></LinkTo>
-    <p class="card-text">{{@recipe.description}}</p>
+    <LinkTo @route="recipe" @model={{@model.id}}><h5 class="card-title">{{@model.title}}</h5></LinkTo>
+    <p class="card-text">{{@model.description}}</p>
   </div>
   <div class="card-footer">
-    <button type="button" class="btn btn-danger float-right" onclick={{action "deleteRecipe" @recipe.id}}><FaIcon @icon="times" /></button>
-    <button type="button" class="btn btn-success float-right mr-2" onclick={{action "editRecipe" @recipe}}><FaIcon @icon="pen" /></button>
+    <button type="button" class="btn btn-danger float-right" onclick={{action "deleteItem" @model.id @type}}><FaIcon @icon="times" /></button>
+    <button type="button" class="btn btn-success float-right mr-2" onclick={{action "editItem" @model @type}}><FaIcon @icon="pen" /></button>
   </div>
 </div>

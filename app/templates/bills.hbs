@@ -1,0 +1,16 @@
+<div class="row mb-5">
+  <div class="col-md-12">
+      <h2>Bills</h2>
+    <button type="button" class="btn btn-primary float-right" onclick={{action "showModalWithForm"}}>Add Bill</button>
+  </div>
+</div>
+
+<div class="row">
+  {{#each @model as |bill|}}
+    <div class="col-md-4 mb-3">
+      <Card @model={{bill}} @type="bill" @showModalWithForm={{showModalWithForm}}/>
+    </div>
+  {{/each}}
+</div>
+
+{{outlet}}

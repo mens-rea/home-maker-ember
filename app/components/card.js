@@ -10,19 +10,19 @@ export default class CardComponent extends Component {
   modalsManager;
 
   @action
-  deleteRecipe(id) {
-    let recipe = this.store.peekRecord('recipe', id);
-    recipe.deleteRecord();
-    recipe.save(); // => DELETE to /posts/1
+  deleteItem(id, type) {
+    let item = this.store.peekRecord(type, id);
+    item.deleteRecord();
+    item.save(); // => DELETE to /posts/1
   }
 
   @action
-  editRecipe(recipe) {
+  editItem(item, type) {
     return this.modalsManager
-      .show('modal-with-form', {recipe: recipe, title: 'Edit Recipe', saveTitle: 'Update'})
+      .show('modal-with-form', {item: item, title: `Edit ${type}`, saveTitle: 'Update'})
       .then(formValues => {
-        this.store.findRecord('recipe', recipe.id).then(function(current) {
-          current = recipe;
+        this.store.findRecord(type, item.id).then(function(current) {
+          current = item;
           current.save(); // => PATCH to '/posts/1'
         });
       })
