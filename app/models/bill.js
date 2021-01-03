@@ -6,9 +6,7 @@ export default class BillModel extends Model {
   @attr('string') title;
   @attr('string') description;
   @attr('number') amount;
-  @attr('date', {
-    defaultValue() { return new Date(); }
-  }) datePaid;
+  @attr('date') datePaid;
 
   @computed('datePaid')
   get isPaid() {
