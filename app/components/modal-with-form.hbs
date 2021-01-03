@@ -27,6 +27,12 @@ as |modal|>
         <form.element
           @property="amount"
           @label="Amount"/>
+
+        <form.element
+          @controlType="date"
+          @property="datePaid"
+          @label="Date Paid"
+          @onChange={{action "changeDate"}}/>
       {{/if}}
     </BsForm>
   </modal.body>

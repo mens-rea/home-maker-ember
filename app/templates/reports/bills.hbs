@@ -15,17 +15,15 @@
   </thead>
   <tbody>
     {{#each @model as |bill|}}
-      <tr>
-        <td>{{bill.title}}</td>
-        <td>
-          {{#if bill.isPaid}}
+      {{#if bill.isPaid}}
+        <tr>
+          <td>{{bill.title}}</td>
+          <td>
             {{moment-format bill.datePaid 'MMM D YYYY'}}
-          {{else}}
-            NA
-          {{/if}}
-        </td>
-        <td>P {{bill.amount}}</td>
-      </tr>
+          </td>
+          <td>P {{bill.amount}}</td>
+        </tr>
+      {{/if}}
     {{/each}}
     <tr class="table-info">
       <td><b>Total</b></td>

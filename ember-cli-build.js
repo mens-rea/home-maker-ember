@@ -7,7 +7,10 @@ module.exports = function(defaults) {
     'ember-bootstrap': {
       bootstrapVersion: 4,
       importBootstrapCSS: false
-    }
+    },
+    flatpickr: {
+      theme: 'material_blue',
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
