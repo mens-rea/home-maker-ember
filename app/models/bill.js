@@ -3,10 +3,12 @@ import { computed } from '@ember/object';
 import { isEmpty } from '@ember/utils';
 
 export default class BillModel extends Model {
-  @attr title;
-  @attr description;
+  @attr('string') title;
+  @attr('string') description;
   @attr('number') amount;
-  @attr('date') datePaid;
+  @attr('date', {
+    defaultValue() { return new Date(); }
+  }) datePaid;
 
   @computed('datePaid')
   get isPaid() {

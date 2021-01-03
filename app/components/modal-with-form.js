@@ -22,10 +22,12 @@ export default class ModalWithFormComponent extends BaseModal {
 
   @action
   changeDate(date, item) {
-    this.store.findRecord('bill', item.id).then(function(current) {
-      current.datePaid = date;
-      current = item;
-      current.save(); // => PATCH to '/posts/1'
-    });
+    if (item.id) {
+      this.store.findRecord('bill', item.id).then(function(current) {
+        current.datePaid = new Date(date);
+        console.log(current.datePaid);
+        current.save(); // => PATCH to '/posts/1'
+      });
+    }
   }
 }
