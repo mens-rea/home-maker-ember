@@ -16,7 +16,13 @@
     {{#each @model as |bill|}}
       <tr>
         <td>{{bill.title}}</td>
-        <td>{{moment-format bill.datePaid 'MMM D YYYY'}}</td>
+        <td>
+          {{#if bill.isPaid}}
+            {{moment-format bill.datePaid 'MMM D YYYY'}}
+          {{else}}
+            NA
+          {{/if}}
+        </td>
         <td>P {{bill.amount}}</td>
       </tr>
     {{/each}}

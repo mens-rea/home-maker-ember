@@ -15,6 +15,13 @@ export default Factory.extend({
   },
 
   datePaid() {
+    faker.seed();
+
+    const random = faker.random.number();
+    if (random % 2 === 0) {
+      return;
+    }
+    
     return faker.date.past();
   }
 });
