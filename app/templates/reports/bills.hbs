@@ -8,7 +8,7 @@
   <thead>
     <tr>
       <th scope="col">Title</th>
-      <th scope="col">Description</th>
+      <th scope="col">Date Paid</th>
       <th scope="col">Amount</th>
     </tr>
   </thead>
@@ -16,7 +16,7 @@
     {{#each @model as |bill|}}
       <tr>
         <td>{{bill.title}}</td>
-        <td>{{bill.description}}</td>
+        <td>{{moment-format bill.datePaid 'MMM D YYYY'}}</td>
         <td>P {{bill.amount}}</td>
       </tr>
     {{/each}}

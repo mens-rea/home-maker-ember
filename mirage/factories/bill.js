@@ -12,5 +12,9 @@ export default Factory.extend({
 
   amount() {
     return faker.commerce.price();
+  },
+
+  datePaid() {
+    return faker.date.past();
   }
 });

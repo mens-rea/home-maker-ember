@@ -8,7 +8,8 @@
     <LinkTo @route="recipe" @model={{@model.id}}><h5 class="card-title">{{@model.title}}</h5></LinkTo>
     <p class="card-text">{{@model.description}}</p>
     {{#if @isBill}}
-      <span>P {{@model.amount}}</span>
+      <span><b>P {{@model.amount}}</b></span>
+      <p><i>{{moment-format @model.datePaid 'MMMM DD YYYY'}}</i></p>
     {{/if}}
   </div>
   <div class="card-footer">
