@@ -4,17 +4,19 @@
   {{else}}
     <img class="card-img-top" src="https://loremflickr.com/cache/resized/65535_50627945193_8d481f8aff_n_320_240_g.jpg" alt={{@title}}>
   {{/if}} --}}
-  <div class="card-header">
-    <div class="form-check float-left">
-      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" disabled checked={{@model.isPaid}}>
-      <label class="form-check-label" for="defaultCheck1">
-        Paid
-      </label>
+  {{#if @isBill}}
+    <div class="card-header">
+      <div class="form-check float-left">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" disabled checked={{@model.isPaid}}>
+        <label class="form-check-label" for="defaultCheck1">
+          Paid
+        </label>
+      </div>
+      {{#if @model.isPaid}}
+        <span class="float-right">{{moment-format @model.datePaid 'MMMM DD YYYY'}}</span>
+      {{/if}}
     </div>
-    {{#if @model.isPaid}}
-      <span class="float-right">{{moment-format @model.datePaid 'MMMM DD YYYY'}}</span>
-    {{/if}}
-  </div>
+  {{/if}}
   <div class="card-body">
     <LinkTo @route="recipe" @model={{@model.id}}><h5 class="card-title">{{@model.title}}</h5></LinkTo>
     <p class="card-text">{{@model.description}}</p>
