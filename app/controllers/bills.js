@@ -18,6 +18,7 @@ export default class BillsController extends Controller {
           title: formValues.title,
           description: formValues.description,
           amount: formValues.amount,
+          datePaid: formValues.datePaid,
         }).save();
         // form is submitted
         // here `formValues` is an object with values from inputs
