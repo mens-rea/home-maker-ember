@@ -10,7 +10,7 @@
 
 <div class="row mt-2 mb-5 bg-light">
   {{#each allRecipes as |recipe|}}
-    <div class="badge badge-rounded display-inline text-white bg-success p-2 m-2 cursor-pointer" onclick={{action "addRecipe" recipe}}>
+    <div class="badge badge-rounded display-inline text-white bg-success p-2 m-2 cursor-pointer hover-opacity" onclick={{action "addRecipe" recipe}}>
       <FaIcon @icon="plus" />
       {{recipe.title}}
     </div>
