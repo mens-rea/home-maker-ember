@@ -8,10 +8,15 @@ module.exports = function(defaults) {
       bootstrapVersion: 4,
       importBootstrapCSS: false
     },
+    sassOptions: {
+      includePaths: ['node_modules/bootstrap/scss'],
+    },
     flatpickr: {
       theme: 'material_blue',
     },
   });
+
+  app.import('node_modules/bootstrap/dist/js/bootstrap.min.js');
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
