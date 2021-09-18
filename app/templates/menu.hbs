@@ -1,5 +1,16 @@
-<h2>{{@model.title}}</h2>
+<div class="row pb-2">
+  <h2 class="display-block mb-2">{{@model.title}}</h2>
+  <p class="w-100">{{@model.description}}</p>
+</div>
 
-{{{@model.description}}}
+<div class="row pb-5">  
+  <button type="button" class="btn btn-success float-left" onclick={{action "showRecipes"}}>Show Recipes</button>
+</div>
 
-{{{@model.recipes}}}
+<div class="row">
+  {{#each recipes as |recipe|}}
+    <div class="col-md-4 mb-3">
+      <Card @model={{recipe}} @type="recipe" @showModalWithForm={{showModalWithForm}}/>
+    </div>
+  {{/each}}
+</div>
