@@ -30,25 +30,23 @@ export default class MenuController extends Controller {
     
     this.recipes = recipeList;
     console.log(this.recipes);
+  }
 
-    // load all recipes available so we can add more
-    this.allRecipes = await this.store.peekAll('recipe');
-
-    if (this.allRecipes.length == 0) {
-      console.log('does not exist yet');
-      this.allRecipes = await this.store.findAll('recipe');
-    }
+  // load all recipes available so we can add more
+  @action
+  async addRecipes() {
+    this.allRecipes = await this.store.findAll('recipe');
   }
 
   @action
   async addRecipe(recipe) {
+    this.model.recipes.push(recipe.id);
     let newList = this.recipes;
 
     let rec = await this.store.peekRecord('recipe', recipe.id);
     newList.push(rec);
 
     this.recipes = newList;
-    this.model.recipes = newList;
     this.model.save();
   }
 }

@@ -3,31 +3,24 @@
   <p class="w-100">{{@model.description}}</p>
 </div>
 
-<div class="row pb-5">  
-  <button type="button" class="btn btn-success float-left" onclick={{action "showRecipes"}}>Show Recipes</button>
+<div class="row">  
+  <button type="button" class="btn btn-primary float-left" onclick={{action "showRecipes"}}>Show Recipes</button>
+  <button type="button" class="btn btn-success float-left ml-2" title="add a recipe to this menu" onclick={{action "addRecipes"}}>Add Recipes</button>
+</div>
+
+<div class="row mt-2 mb-5 bg-light">
+  {{#each allRecipes as |recipe|}}
+    <div class="badge badge-rounded display-inline text-white bg-success p-2 m-2 cursor-pointer" onclick={{action "addRecipe" recipe}}>
+      <FaIcon @icon="plus" />
+      {{recipe.title}}
+    </div>
+  {{/each}}
 </div>
 
 <div class="row">
   {{#each recipes as |recipe|}}
     <div class="col-md-4 mb-3">
       <Card @model={{recipe}} @type="recipe" @showModalWithForm={{showModalWithForm}}/>
-    </div>
-  {{/each}}
-</div>
-
-<h2 class="my-5">
-  ADD A RECIPE TO THIS MENU
-</h2>
-
-<div class="row py-2">
-  {{#each allRecipes as |recipe|}}
-    <div class="col-2 p-2 m-2 bg-light">
-      <div class="row">
-        <div class="col-10">{{recipe.title}}</div>
-        <div class="col-2">
-          <button type="button" class="btn btn-success float-right mr-2" onclick={{action "addRecipe" recipe}}><FaIcon @icon="plus" /></button>
-        </div>
-      </div>
     </div>
   {{/each}}
 </div>
