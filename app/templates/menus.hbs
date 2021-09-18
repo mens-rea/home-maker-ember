@@ -1,0 +1,17 @@
+<div class="row mb-5">
+  <div class="col-md-12">
+      <h2>Menus</h2>
+    <button type="button" class="btn btn-primary float-right" onclick={{action "showModalWithForm"}}>Add Menu</button>
+    <button type="button" class="btn btn-primary float-right" onclick={{action "showRecipes"}}>Test</button>
+  </div>
+</div>
+
+<div class="row">
+  {{#each @model as |menu|}}
+    <div class="col-md-4 mb-3">
+      <Card @model={{menu}} @type="menu" @showModalWithForm={{showModalWithForm}}/>
+    </div>
+  {{/each}}
+</div>
+
+{{outlet}}
