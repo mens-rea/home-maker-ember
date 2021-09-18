@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import {inject as service} from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 
 export default class CardComponent extends Component {
   @service
@@ -9,8 +10,16 @@ export default class CardComponent extends Component {
   @service
   modalsManager;
 
+  @tracked type;
+
   @action
   deleteItem(id, type) {
+    alert(this.args.elementId);
+    if (this.args.removeAction) {
+      this.args.removeAction(this.args.elementId);
+      return;
+    }
+
     let item = this.store.peekRecord(type, id);
     item.deleteRecord();
     item.save(); // => DELETE to /posts/1

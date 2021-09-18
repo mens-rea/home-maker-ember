@@ -38,15 +38,33 @@ export default class MenuController extends Controller {
     this.allRecipes = await this.store.findAll('recipe');
   }
 
+  // add a specific recipe to the menu
   @action
   async addRecipe(recipe) {
-    this.model.recipes.push(recipe.id);
     let newList = this.recipes;
+    
+    if (!this.model.recipes) {
+      this.model.recipes = [];
+    }
+    this.model.recipes.push(recipe.id);
 
     let rec = await this.store.peekRecord('recipe', recipe.id);
     newList.push(rec);
 
     this.recipes = newList;
+    this.model.save();
+  }
+
+  // remove a specific recipe from the menu
+  @action
+  async removeRecipe(id) {
+    // remove from the ui list
+    let newList = this.recipes;
+    newList.splice(id, 1);
+    this.recipes = newList;
+
+    // remove from the database
+    this.model.recipes.splice(id, 1);
     this.model.save();
   }
 }
