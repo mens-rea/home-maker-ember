@@ -16,7 +16,12 @@ export default class MenuController extends Controller {
     console.log(this.recipes);
 
     for (const recipe of this.model.recipes) {
-      let rec = await this.store.findRecord('recipe', recipe);
+      let rec = await this.store.peekRecord('recipe', recipe);
+
+      if (!rec) {
+        rec = await this.store.findRecord('recipe', recipe);
+        console.log("record doesn't exist yet");
+      }
       recipeList.push(rec);
     }
     
