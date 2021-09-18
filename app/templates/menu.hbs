@@ -14,3 +14,20 @@
     </div>
   {{/each}}
 </div>
+
+<h2 class="my-5">
+  ADD A RECIPE TO THIS MENU
+</h2>
+
+<div class="row py-2">
+  {{#each allRecipes as |recipe|}}
+    <div class="col-2 p-2 m-2 bg-light">
+      <div class="row">
+        <div class="col-10">{{recipe.title}}</div>
+        <div class="col-2">
+          <button type="button" class="btn btn-success float-right mr-2" onclick={{action "addRecipe" recipe}}><FaIcon @icon="plus" /></button>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
