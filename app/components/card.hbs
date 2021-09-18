@@ -18,7 +18,7 @@
     </div>
   {{/if}}
   <div class="card-body">
-    <LinkTo @route="recipe" @model={{@model.id}}><h5 class="card-title">{{@model.title}}</h5></LinkTo>
+    <LinkTo @route={{@type}} @model={{@model.id}}><h5 class="card-title">{{@model.title}}</h5></LinkTo>
     <p class="card-text">{{@model.description}}</p>
     {{#if @isBill}}
       <span><b>P {{@model.amount}}</b></span>

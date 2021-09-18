@@ -20,6 +20,7 @@ export default class MenusController extends Controller {
         this.store.createRecord('menu', {
           title: formValues.title,
           description: formValues.description,
+          recipes: ['-MQ7zUSGIuSOa10X_H9r', '-MQ7zUSGIuSOa10X_H9r'],
         }).save();
         // form is submitted
         // here `formValues` is an object with values from inputs

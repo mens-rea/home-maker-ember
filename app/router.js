@@ -16,6 +16,9 @@ Router.map(function() {
     path: 'bills/:bill_id'
   });
   this.route('menus');
+  this.route('menu', {
+    path: 'menus/:menu_id'
+  });
 
   this.route('reports', function() {
     this.route('bills');
