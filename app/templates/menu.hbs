@@ -19,8 +19,8 @@
 
 <div class="row">
   {{#each recipes as |recipe index|}}
-    <div class="col-md-4 mb-3">
-      <Card @model={{recipe}} @elementId={{index}} @type="recipe" @showModalWithForm={{showModalWithForm}} @removeAction={{this.removeRecipe}} />
+    <div class="col-md-6 mb-1">
+      <Row @model={{recipe}} @elementId={{index}} @type="recipe" @showModalWithForm={{showModalWithForm}} @removeAction={{this.removeRecipe}} />
     </div>
   {{/each}}
 </div>
