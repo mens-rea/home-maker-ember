@@ -15,6 +15,10 @@ Router.map(function() {
   this.route('bill', {
     path: 'bills/:bill_id'
   });
+  this.route('upgrades');
+  this.route('upgrades', {
+    path: 'upgrades/:upgrade_id'
+  });
   this.route('menus');
   this.route('menu', {
     path: 'menus/:menu_id'
