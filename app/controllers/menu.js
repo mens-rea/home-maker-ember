@@ -32,6 +32,32 @@ export default class MenuController extends Controller {
     console.log(this.recipes);
   }
 
+  @action
+  async generateGroceryList() {
+    alert('groceryListGenerated');
+
+    if (this.recipes) {
+      for (const recipe of this.recipes) {
+        if (recipe.ingredients) {
+          let ingredientList = [];
+
+          for (const id of recipe.ingredients) {
+            let ingredient = await this.store.peekRecord('ingredient', id);
+      
+            if (!ingredient) {
+              ingredient = await this.store.findRecord('ingredient', id);
+            }
+            ingredientList.push(ingredient);
+          }
+
+          for (const item of ingredientList) {
+            console.log(item.title);
+          }
+        }
+      }
+    }
+  }
+
   // load all recipes available so we can add more
   @action
   async addRecipes() {
