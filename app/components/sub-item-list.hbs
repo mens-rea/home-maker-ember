@@ -1,13 +1,12 @@
-<div class="row">  
-  {{!-- <button type="button" class="btn btn-primary float-left" onclick={{action "showIngredients"}}>Show Ingredients</button> --}}
-  <button type="button" class="btn btn-success float-left ml-2" title="add a recipe to this menu" onclick={{action "addIngredients"}}>Add Ingredients</button>
+<div class="row">
+  <button type="button" class="btn btn-success float-left ml-2" title="add {{@type}}s to this menu" onclick={{action "addItems"}}>Add {{@type}}s</button>
 </div>
 
 <div class="row mt-2 mb-5 bg-light">
-  {{#each allIngredients as |ingredient|}}
-    <div class="badge badge-rounded display-inline text-white bg-success p-2 m-2 cursor-pointer hover-opacity" onclick={{action "addItem" ingredient}}>
+  {{#each allItems as |item|}}
+    <div class="badge badge-rounded display-inline text-white bg-success p-2 m-2 cursor-pointer hover-opacity" onclick={{action "addItem" item}}>
       <FaIcon @icon="plus" />
-      {{ingredient.title}}
+      {{item.title}}
     </div>
   {{/each}}
 </div>
@@ -15,7 +14,7 @@
 <div class="row">
   {{#each list as |item index|}}
     <div class="col-md-6 mb-1">
-      <Row @model={{item}} @elementId={{index}} @type={{this.type}} @showModalWithForm={{this.showModalWithForm}} @removeAction={{removeItem}} />
+      <Row @model={{item}} @elementId={{index}} @type={{@type}} @showModalWithForm={{this.showModalWithForm}} @removeAction={{removeItem}} />
     </div>
   {{/each}}
 </div>
