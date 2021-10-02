@@ -25,3 +25,16 @@
     </div>
   {{/each}}
 </div>
+
+{{#if ingredients}}
+  <div class="row pb-2 mt-5">
+    <h2 class="display-block mb-2">Grocery List</h2>
+  </div>
+  <div class="row mt-2">
+    {{#each ingredients as |ingredient index|}}
+      <div class="col-md-6 mb-1">
+        <SimpleRow @model={{ingredient}} @elementId={{index}} @type="recipe" @showModalWithForm={{showModalWithForm}} @removeAction={{this.removeGroceryItem}} />
+      </div>
+    {{/each}}
+  </div>
+{{/if}}

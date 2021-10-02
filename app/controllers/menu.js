@@ -11,6 +11,8 @@ export default class MenuController extends Controller {
   @tracked recipes = A([]);
   @tracked allRecipes = A([]);
 
+  @tracked ingredients = A([]);
+
   @action
   async showRecipes() {
     let recipeList = [];
@@ -37,10 +39,9 @@ export default class MenuController extends Controller {
     alert('groceryListGenerated');
 
     if (this.recipes) {
+      let ingredientList = [];
       for (const recipe of this.recipes) {
         if (recipe.ingredients) {
-          let ingredientList = [];
-
           for (const id of recipe.ingredients) {
             let ingredient = await this.store.peekRecord('ingredient', id);
       
@@ -49,12 +50,12 @@ export default class MenuController extends Controller {
             }
             ingredientList.push(ingredient);
           }
-
-          for (const item of ingredientList) {
-            console.log(item.title);
-          }
         }
       }
+      this.ingredients = ingredientList;
+      // for (const item of ingredientList) {
+      //   console.log(item.title);
+      // }
     }
   }
 
@@ -92,5 +93,14 @@ export default class MenuController extends Controller {
     // remove from the database
     this.model.recipes.splice(id, 1);
     this.model.save();
+  }
+
+  // remove grocery list item
+  @action
+  async removeGroceryItem(id) {
+    // remove from the ui list
+    let list = this.ingredients;
+    list.splice(id, 1);
+    this.ingredients = list;
   }
 }
