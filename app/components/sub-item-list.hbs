@@ -1,8 +1,12 @@
-<div class="row">
+<div class="row mt-2">
+  <h2>{{@title}}</h2>
+</div>
+
+<div class="row mt-1">
   <button type="button" class="btn btn-success float-left ml-2" title="add {{@type}}s to this menu" onclick={{action "addItems"}}>Add {{@type}}s</button>
 </div>
 
-<div class="row mt-2 mb-5 bg-light">
+<div class="row bg-light my-1">
   {{#each allItems as |item|}}
     <div class="badge badge-rounded display-inline text-white bg-success p-2 m-2 cursor-pointer hover-opacity" onclick={{action "addItem" item}}>
       <FaIcon @icon="plus" />
@@ -11,10 +15,10 @@
   {{/each}}
 </div>
 
-<div class="row">
+<div class="row mt-2">
   {{#each list as |item index|}}
-    <div class="col-md-6 mb-1">
-      <Row @model={{item}} @elementId={{index}} @type={{@type}} @showModalWithForm={{this.showModalWithForm}} @removeAction={{removeItem}} />
+    <div class="col-md-3 mb-1">
+      <SimpleRow @model={{item}} @elementId={{index}} @type={{@type}} @showModalWithForm={{this.showModalWithForm}} @removeAction={{removeItem}} />
     </div>
   {{/each}}
 </div>

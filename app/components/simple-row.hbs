@@ -1,0 +1,15 @@
+<div class="row bg-light py-2 mx-2 my-1">
+  <div class="col-10">
+    <LinkTo @route={{@type}} @model={{@model.id}}>
+      <h6 class="card-title align-middle m-0">
+        {{@model.title}}
+      </h6>
+    </LinkTo>
+    {{#if @isBill}}
+      <span><b>P {{@model.amount}}</b></span>
+    {{/if}}
+  </div>
+  <div class="col-2">
+    <button type="button" class="btn btn-danger btn-sm float-right p-0 px-2" onclick={{action "deleteItem" @model.id @type}}><FaIcon @icon="times" class="fa-xs"/></button>
+  </div>
+</div>
