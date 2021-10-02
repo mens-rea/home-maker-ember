@@ -4,7 +4,7 @@
 </div>
 
 <div class="row">  
-  <button type="button" class="btn btn-primary float-left" onclick={{action "showIngredients"}}>Show Ingredients</button>
+  {{!-- <button type="button" class="btn btn-primary float-left" onclick={{action "showIngredients"}}>Show Ingredients</button> --}}
   <button type="button" class="btn btn-success float-left ml-2" title="add a recipe to this menu" onclick={{action "addIngredients"}}>Add Ingredients</button>
 </div>
 
@@ -17,10 +17,4 @@
   {{/each}}
 </div>
 
-<div class="row">
-  {{#each ingredients as |ingredient index|}}
-    <div class="col-md-6 mb-1">
-      <Row @model={{ingredient}} @elementId={{index}} @type="ingredient" @showModalWithForm={{showModalWithForm}} @removeAction={{this.removeIngredient}} />
-    </div>
-  {{/each}}
-</div>
+<SubItemList @recipeModel={{this.model}} @type="ingredient" @showModalWithForm={{this.showModalWithForm}} @removeAction={{this.removeIngredient}} />

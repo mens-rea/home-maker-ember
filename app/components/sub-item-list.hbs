@@ -1,0 +1,8 @@
+<div class="row">
+  {{@elementId}}
+  {{#each list as |item index|}}
+    <div class="col-md-6 mb-1">
+      <Row @model={{item}} @elementId={{@elementId}} @type={{@type}} @showModalWithForm={{@showModalWithForm}} @removeAction={{@removeAction}} />
+    </div>
+  {{/each}}
+</div>
