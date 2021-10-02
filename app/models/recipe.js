@@ -1,8 +1,9 @@
 import Model, {attr} from '@ember-data/model';
 
 export default class RecipeModel extends Model {
-  @attr title;
-  @attr description;
+  @attr('string') title;
+  @attr('string') description;
+  @attr() ingredients;
 
   deleteRecipe(id) {
     let recipe = store.peekRecord('recipe', id);

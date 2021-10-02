@@ -23,6 +23,10 @@ Router.map(function() {
   this.route('menu', {
     path: 'menus/:menu_id'
   });
+  this.route('ingredients');
+  this.route('ingredient', {
+    path: 'ingredients/:ingredient_id'
+  });
 
   this.route('reports', function() {
     this.route('bills');
