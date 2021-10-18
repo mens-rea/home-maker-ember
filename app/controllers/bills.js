@@ -8,23 +8,23 @@ export default class BillsController extends Controller {
   
   @action
   showModalWithForm() {
-    return this.modalsManager
-      .show('modal-with-form', {
-        isBill: true,
-        title: 'Add Bill',
-        saveTitle: 'Save'})
-      .then(formValues => {
-        this.store.createRecord('bill', {
-          title: formValues.title,
-          description: formValues.description,
-          amount: formValues.amount,
-          datePaid: formValues.datePaid,
-        }).save();
-        // form is submitted
-        // here `formValues` is an object with values from inputs
-      })
-      .catch(() => {
-        // modal is closed without submit
-      });
+    // return this.modalsManager
+    //   .show('modal-with-form', {
+    //     isBill: true,
+    //     title: 'Add Bill',
+    //     saveTitle: 'Save'})
+    //   .then(formValues => {
+    //     this.store.createRecord('bill', {
+    //       title: formValues.title,
+    //       description: formValues.description,
+    //       amount: formValues.amount,
+    //       datePaid: formValues.datePaid,
+    //     }).save();
+    //     // form is submitted
+    //     // here `formValues` is an object with values from inputs
+    //   })
+    //   .catch(() => {
+    //     // modal is closed without submit
+    //   });
   }
 }
