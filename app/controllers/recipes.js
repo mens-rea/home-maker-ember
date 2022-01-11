@@ -14,6 +14,7 @@ export default class RecipesController extends Controller {
         this.store.createRecord('recipe', {
           title: formValues.title,
           description: formValues.description,
+          ingredients: [],
         }).save();
         // form is submitted
         // here `formValues` is an object with values from inputs
